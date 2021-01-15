@@ -11,6 +11,7 @@ const year1 = new Age(1, 'crying');
 const year3 = new Age(3, 'walking');
 const year7 = new Age(7, 'school');
 
+
 class LinkedList{
     constructor(data, highLights){
         this.tail = new Age(data, highLights);
