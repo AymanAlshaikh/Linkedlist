@@ -47,8 +47,7 @@ class Node {
   const random = (array) => {const index = Math.floor(Math.random()*array.length);
     return array[index]};
   
-  //console.log(random(colors))
-  //console.log(random(num))
+
   console.log('Stack: ')
   for (let i=1; i<=20; i++){
     deck.push(random(colors), random(num))
@@ -62,7 +61,7 @@ class Node {
   console.log('\nPlayer2: ');
   for (let y=1; y<=5; y++){
     console.log(y, deck.peek());
-    deck.pop()//random(colors), random(num));
+    deck.pop()
   }
   //deck.pop();
   //deck.push(random(colors), random(num))
