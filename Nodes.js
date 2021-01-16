@@ -8,8 +8,8 @@ class Age{
     }
 }
 const year1 = new Age(1, 'crying');
-const year3 = new Age(3, 'walking');
-const year7 = new Age(7, 'school');
+const year3 = new Age(3, 'walking', year1.link);
+const year7 = new Age(7, 'school', year3.link);
 
 
 class LinkedList{
@@ -57,7 +57,7 @@ class LinkedList{
   };
 }
 
-const yearsOld = new LinkedList(7, 'school');
+const yearsOld = new LinkedList(year7)//, "School");
 yearsOld.insert(3, 'walking');
 yearsOld.insert(1, 'crying');
 const data = prompt("how old R U? ");

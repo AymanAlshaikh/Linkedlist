@@ -54,15 +54,22 @@ class Node {
     console.log(i, deck.peek())
   }
   console.log('\nPlayer1: ');
+  let player1=[];
   for (let x=1; x<=5; x++){
-    console.log(x, deck.peek());
+    player1.push(deck.peek());
+    //console.log(x, deck.peek());
     deck.pop();
   }
+  console.log(player1);
+
   console.log('\nPlayer2: ');
+  let player2 = [];
   for (let y=1; y<=5; y++){
-    console.log(y, deck.peek());
+    player2.push(deck.peek());
+    //console.log(y, deck.peek());
     deck.pop()
   }
+  console.log(player2)
   //deck.pop();
   //deck.push(random(colors), random(num))
   console.log('\nFirst card: ', deck.peek())
