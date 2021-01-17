@@ -116,13 +116,30 @@ class HashTable {
   }
 
   looping = (students) => {
+    let size = 0;
     for (let i = 0; i < students.length; i++) {
       //console.log(students[i]);
-      if (students[i].score >= 90){
-          this.classes.A.push(`${students[i].name}-${students[i].score}`)  console.log(this.classes.A);}
-      else if (students[i] >= 80) this.classes.B.push(students[i].name);
-      else if (students[i] >= 70) this.classes.C.push(students[i].name);
-      else if (students[i] >= 60) this.classes.D.push(students[i].name);
+      if (students[i].score >= 90 && size === this.classSize) {
+        this.classes.A.push(
+          `Class A: ${students[i].name}-${students[i].score}`
+        );
+      } else if (students[i].score >= 80) {
+        this.classes.B.push(
+          `Class B: ${students[i].name}-${students[i].score}`
+        );
+      } else if (students[i].score >= 70) {
+        this.classes.C.push(
+          `Class C: ${students[i].name}-${students[i].score}`
+        );
+      } else if (students[i].score >= 60) {
+        this.classes.D.push(
+          `Class D: ${students[i].name}-${students[i].score}`
+        );
+      } else {
+        this.classes.Other.push(
+          `Class Other: ${students[i].name}-${students[i].score}`
+        );
+      }
     }
   };
 
@@ -159,6 +176,11 @@ class HashTable {
     }
   };
 }
-const ayman = new HashTable();
+const grades = new HashTable();
 
-ayman.looping(students);
+grades.looping(students);
+console.log(grades.classes.A);
+console.log(grades.classes.B);
+console.log(grades.classes.C);
+console.log(grades.classes.D);
+console.log(grades.classes.Other);
