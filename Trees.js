@@ -3,18 +3,16 @@ class FamilyTree {
     this.data = data;
     this.children = [];
   }
-
+  getchildwithname = (data) => {
+    return this.children.find((child) => child.data === data);
+  };
+  findFather = (node) => {};
   addChild = (node) => {
-    for (let i = 0; i <= this.children.length; i++) {}
     if (this.children.length < 2) {
       this.children.push(node);
     } else {
       console.log("this parent got two kids already");
     }
-  };
-
-  removeChild = (node) => {
-    this.children = this.children.filter((child) => child !== node);
   };
 
   traverse = () => {
@@ -33,16 +31,28 @@ class FamilyTree {
     }*/
   };
 }
-const root = new FamilyTree("Darth Vader");
-const child1 = new FamilyTree("Luke Darth");
-const child2 = new FamilyTree("Leia Dart");
-const child3 = new FamilyTree("Kylo Ren");
-const child4 = new FamilyTree("Ren");
-const child5 = new FamilyTree("Kylo");
-root.addChild(child1);
-root.addChild(child2);
-root.addChild(child3);
-//child1.addChild(child4);
-//child1.addChild(child5);
+const root = new FamilyTree("");
+while (fullname !== done) {
+  let current = root;
+  let names = fullname.split(" ").reverse();
+  let firstname = names.pop();
+  let lastname = names.pop(0);
+  if (lastname === current.data) {
+    if (names) {
+      for (let i = 0; i < names.length; i++) {
+        let child = curent.getchildwithname(data);
+        if (child) {
+          current = child;
+        } else {
+          let newnode = new FamilyTree(data);
+          current.addChild(newnode);
+          current = newnode;
+        }
+      }
+    }
+    let newnode = new FamilyTree(firstname);
+    current.addChild(newnode);
+  }
+}
 
 root.traverse();
