@@ -1,3 +1,4 @@
+const prompt = require("prompt-sync")({ sigint: true });
 const students = [
   {
     name: "Jean-Luc Garza",
@@ -117,28 +118,30 @@ class HashTable {
 
   looping = (students) => {
     let size = 0;
-    for (let i = 0; i < students.length; i++) {
-      //console.log(students[i]);
-      if (students[i].score >= 90 && size === this.classSize) {
-        this.classes.A.push(
-          `Class A: ${students[i].name}-${students[i].score}`
-        );
-      } else if (students[i].score >= 80) {
-        this.classes.B.push(
-          `Class B: ${students[i].name}-${students[i].score}`
-        );
-      } else if (students[i].score >= 70) {
-        this.classes.C.push(
-          `Class C: ${students[i].name}-${students[i].score}`
-        );
-      } else if (students[i].score >= 60) {
-        this.classes.D.push(
-          `Class D: ${students[i].name}-${students[i].score}`
-        );
-      } else {
-        this.classes.Other.push(
-          `Class Other: ${students[i].name}-${students[i].score}`
-        );
+    if (size < this.classSize) {
+      for (let i = 0; i < students.length; i++) {
+        //console.log(students[i]);
+        if (students[i].score >= 90 && size === this.classSize) {
+          this.classes.A.push(
+            `Class A: ${students[i].name}-${students[i].score}`
+          );
+        } else if (students[i].score >= 80) {
+          this.classes.B.push(
+            `Class B: ${students[i].name}-${students[i].score}`
+          );
+        } else if (students[i].score >= 70) {
+          this.classes.C.push(
+            `Class C: ${students[i].name}-${students[i].score}`
+          );
+        } else if (students[i].score >= 60) {
+          this.classes.D.push(
+            `Class D: ${students[i].name}-${students[i].score}`
+          );
+        } else {
+          this.classes.Other.push(
+            `Class Other: ${students[i].name}-${students[i].score}`
+          );
+        }
       }
     }
   };
@@ -176,11 +179,12 @@ class HashTable {
     }
   };
 }
-const grades = new HashTable();
+const size = prompt("How many students?");
+const grades = new HashTable(size);
 
 grades.looping(students);
-console.log(grades.classes.A);
-console.log(grades.classes.B);
-console.log(grades.classes.C);
-console.log(grades.classes.D);
-console.log(grades.classes.Other);
+console.log(grades.classes);
+//console.log(grades.classes.B);
+//console.log(grades.classes.C);
+//console.log(grades.classes.D);
+//console.log(grades.classes.Other);
