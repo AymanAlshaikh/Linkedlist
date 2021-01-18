@@ -165,39 +165,6 @@ class HashTable {
     }
     //}
   };
-
-  insert = (key, value) => {
-    let collisionCount = 0;
-    while (true) {
-      const hashCode = this.hash(key, collisionCount);
-      const index = this.compress(hashCode);
-
-      let currentValue = this.array[index];
-      if (!currentValue || currentValue[0] === key) {
-        this.array[index] = [students.name, students.score];
-        break;
-      } else {
-        collisionCount++;
-      }
-    }
-  };
-
-  lookup = (key) => {
-    let collisionCount = 0;
-    while (true) {
-      const hashCode = this.hash(key, collisionCount);
-      const index = this.compress(hashCode);
-      let currentValue = this.array[index];
-
-      if (!currentValue) return null;
-
-      if (currentValue[0] === key) {
-        return currentValue[1];
-      }
-
-      collisionCount++;
-    }
-  };
 }
 const size = prompt("How many students?");
 const grades = new HashTable(size);
