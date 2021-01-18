@@ -117,33 +117,53 @@ class HashTable {
   }
 
   looping = (students) => {
-    let size = 0;
-    if (size < this.classSize) {
-      for (let i = 0; i < students.length; i++) {
-        //console.log(students[i]);
-        if (students[i].score >= 90 && size === this.classSize) {
-          this.classes.A.push(
-            `Class A: ${students[i].name}-${students[i].score}`
-          );
-        } else if (students[i].score >= 80) {
-          this.classes.B.push(
-            `Class B: ${students[i].name}-${students[i].score}`
-          );
-        } else if (students[i].score >= 70) {
-          this.classes.C.push(
-            `Class C: ${students[i].name}-${students[i].score}`
-          );
-        } else if (students[i].score >= 60) {
-          this.classes.D.push(
-            `Class D: ${students[i].name}-${students[i].score}`
-          );
-        } else {
-          this.classes.Other.push(
-            `Class Other: ${students[i].name}-${students[i].score}`
-          );
-        }
+    let size1 = 0;
+    let size2 = 0;
+    let size3 = 0;
+    let size4 = 0;
+    let size5 = 0;
+    //if (size < this.classSize) {
+    for (let i = 0; i < students.length; i++) {
+      //console.log(students[i]);
+      if (students[i].score >= 90 && size1 < this.classSize) {
+        this.classes.A.push(
+          `Class A: ${students[i].name}-${students[i].score}`
+        );
+        size1++;
+      } else if (
+        students[i].score >= 80 &&
+        students[i].score < 90 &&
+        size2 < this.classSize
+      ) {
+        this.classes.B.push(
+          `Class B: ${students[i].name}-${students[i].score}`
+        );
+        size2++;
+      } else if (
+        students[i].score >= 70 &&
+        students[i].score < 80 &&
+        size3 < this.classSize
+      ) {
+        this.classes.C.push(
+          `Class C: ${students[i].name}-${students[i].score}`
+        );
+        size3++;
+      } else if (
+        students[i].score >= 60 &&
+        students[i].score < 70 &&
+        size4 < this.classSize
+      ) {
+        this.classes.D.push(
+          `Class D: ${students[i].name}-${students[i].score}`
+        );
+        size4++;
+      } else {
+        this.classes.Other.push(
+          `Class Other: ${students[i].name}-${students[i].score}`
+        );
       }
     }
+    //}
   };
 
   insert = (key, value) => {
